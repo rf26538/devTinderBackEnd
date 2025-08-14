@@ -42,8 +42,9 @@ exports.userLogin = async (req, res) => {
             const token = await jwt.sign({_id: user._id}, "DEV@Tinder$777", { expiresIn : "7d"}); //this can be offload to user Schema methods for clean code i have written there just use it
             // console.log(token);
 
-            res.cookie('token', token
-                // ,{ expires : new Date(Date.now() + 8 * 3600000)} // You can set cookie for expire also
+            res.cookie(
+                'token', token,
+                { expires : new Date(Date.now() + 8 * 3600000)} // You can set cookie for expire also
             );
             
             res.send(user);
