@@ -1,7 +1,7 @@
 const ConnectionRequest = require('../models/connection');
 const User = require("../models/user");
 
-const USR_SAFE_DATA = "firstName lastName age gender";
+const USR_SAFE_DATA = "firstName lastName age gender photoUrl about skills";
 
 exports.getUserRequest = async (req, res) => {
     try {
@@ -83,7 +83,7 @@ exports.getUserFeed = async (req, res) => {
         });
 
         const users = await User.find({
-            $and : [
+            $and : [ //and used for more then i condition
                 { _id : { $nin : Array.from(hideUsersFromFeed) } },//funtion converts set to array
                 { _id : { $ne : loggedInUser._id }}
             ],
