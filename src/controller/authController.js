@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
-exports.userSignup = async (req, res) => {
+exports.userSignUp = async (req, res) => {
     try{
         validateSignUpData(req);
     
@@ -25,7 +25,7 @@ exports.userSignup = async (req, res) => {
     }
 }
 
-exports.userLogin = async (req, res) => {
+exports.userLogIn = async (req, res) => {
     try {
         const {emailId, password} = req.body;
 
@@ -57,15 +57,15 @@ exports.userLogin = async (req, res) => {
 }
 
 exports.userLogOut = async (req, res) => {
-    // res.cookie("token", null, {
-    //     expires : new Date(Date.now())
-    // })
-    // res.status(200).send("User logout successfully");
+    res.cookie("token", null, {
+        expires : new Date(Date.now())
+    })
+    res.status(200).send("User Logout Successfully");
 
     // or chain
 
-    res
-    .cookie("token", null, {
-        expires : new Date(Date.now())
-    }).send("Logout Successfull!!!");
+    // res
+    // .cookie("token", null, {
+    //     expires : new Date(Date.now())
+    // }).send("Logout Successfull!!!");
 }
