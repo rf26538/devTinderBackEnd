@@ -1,7 +1,7 @@
 const ConnectionRequest = require('../models/connection');
 const User = require("../models/user");
 
-const USR_SAFE_DATA = "firstName lastName age gender photoUrl about skills";
+const USR_SAFE_DATA = "firstName lastName age gender photoUrl about skills emailId";
 
 exports.getUserRequest = async (req, res) => {
     try {
