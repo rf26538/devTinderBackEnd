@@ -12,7 +12,7 @@ exports.getUserRequest = async (req, res) => {
             status : "interested"
         //If do not pass second parameter in populate we will get all the data of it
         // }).populate("fromUserId", "firstName lastName age gender"); -> we can do like string with space or pass second param with array , seprated
-        }).populate("fromUserId", ["firstName", "lastName", "age", "gender", "photoUrl", "skills"]) 
+        }).populate("fromUserId", ["firstName", "lastName", "age", "gender", "photoUrl", "skills", "about"]) 
         
         res.json({
             message : "Data fetched successfully", 
