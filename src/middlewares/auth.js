@@ -1,7 +1,7 @@
 const express = require("express")
 const jwt = require('jsonwebtoken');
 const User = require("../models/user")
-const app = express;
+const app = express();
 
 // const adminAuth =  (req, res, next) => {
 //     console.log("Admin authorization");
